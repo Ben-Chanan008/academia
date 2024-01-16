@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+:root{
+    --primary: #171821;
+    --secondary: #21222d;
+    --pink: #f9769d;
+    --blue: #96a7ff;
+    --white: #ffff;
+}
+
+body {
+    font-family: 'Roboto', 'sans-serif' !important;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.small-search{
+    display: none;
+    background-color: var(--secondary);
+    input{
+        background-color: var(--secondary);
+        border: none;
+    }
+
+    .form-control{
+        &:focus{
+            outline: none !important;
+            box-shadow: none !important;
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+
+        &::placeholder{
+            color: var(--white) !important;
+        }
+    }
+}
+
+nav{
+    .search{
+        @media screen and (max-width: 576px) {
+            display: none !important;
+        }
+        background-color: var(--secondary);
+        input{
+            background-color: transparent;
+            border: none;
+        }
+
+        .form-control{
+            &:focus{
+                outline: none !important;
+                box-shadow: none !important;
+                background-color: var(--secondary);
+                color: var(--white);
+            }
+
+            &::placeholder{
+                color: var(--white) !important;
+            }
+        }
+    }
+
+    .small{
+        display: none;
+        @media screen and (max-width: 576px) {
+            display: block !important;
+        }
+    }
+
+    .user{
+        width: 70px;
+        height: 70px;
+        border: 1px solid #ffffff;
+        img{
+            object-fit: contain;
+            height: 100%;
+        }
+    }
+
+    .icons{
+        display: inline;
+
+    }
+}
+
+.sidebar{
+    max-width: 100px;
+    div.side-icons{
+        > div{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a.active{
+                &::before{
+                    content: "";
+                    background-color: var(--pink);
+                    width: 2px;
+                    position: absolute;
+                    margin: 10px;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+    a{
+        color: #cccccc;
+        right: 0;
+
+        &.active{
+            color: var(--pink) !important;
+        }
+    }
+}

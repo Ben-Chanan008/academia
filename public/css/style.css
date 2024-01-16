@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+:root {
+  --primary: #171821;
+  --secondary: #21222d;
+  --pink: #f9769d;
+  --blue: #96a7ff;
+  --white: #ffff; }
+
+body {
+  font-family: 'Roboto', 'sans-serif' !important;
+  background-color: var(--primary);
+  color: var(--white); }
+
+.small-search {
+  display: none;
+  background-color: var(--secondary); }
+  .small-search input {
+    background-color: var(--secondary);
+    border: none; }
+  .small-search .form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: var(--secondary);
+    color: var(--white); }
+  .small-search .form-control::placeholder {
+    color: var(--white) !important; }
+
+nav .search {
+  background-color: var(--secondary); }
+  @media screen and (max-width: 576px) {
+    nav .search {
+      display: none !important; } }
+  nav .search input {
+    background-color: transparent;
+    border: none; }
+  nav .search .form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: var(--secondary);
+    color: var(--white); }
+  nav .search .form-control::placeholder {
+    color: var(--white) !important; }
+nav .small {
+  display: none; }
+  @media screen and (max-width: 576px) {
+    nav .small {
+      display: block !important; } }
+nav .user {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #ffffff; }
+  nav .user img {
+    object-fit: contain;
+    height: 100%; }
+nav .icons {
+  display: inline; }
+
+.sidebar {
+  max-width: 100px; }
+  .sidebar div.side-icons > div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .sidebar div.side-icons > div a.active::before {
+      content: "";
+      background-color: var(--pink);
+      width: 2px;
+      position: absolute;
+      margin: 10px;
+      top: 0;
+      bottom: 0;
+      left: 0; }
+  .sidebar a {
+    color: #cccccc;
+    right: 0; }
+    .sidebar a.active {
+      color: var(--pink) !important; }
+
+/*# sourceMappingURL=style.css.map */
