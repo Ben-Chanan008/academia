@@ -1,5 +1,6 @@
 <x-base_struct title="Dashboard">
+    <x-statistics />
     <x-navbar />
-    <p class="section">Link</p>
     <x-sidebar />
+{{--    <span class="section">Link</span>--}}
 </x-base_struct>

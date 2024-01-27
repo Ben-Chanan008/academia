@@ -1,0 +1,13 @@
+.site-primary {
+  background-color: var(--primary) !important; }
+
+.site-secondary {
+  background-color: var(--secondary) !important; }
+
+.site-text-primary {
+  color: var(--primary) !important; }
+
+.site-text-secondary {
+  color: var(--primary) !important; }
+
+/*# sourceMappingURL=color.css.map */
