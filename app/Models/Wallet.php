@@ -10,24 +10,16 @@ class Wallet extends Model
 {
     use HasFactory;
 
-    private static function getCardNumber(string $user)
+    public static function getCardNumber(string $card_number)
     {
-        $user_card = Wallet::where('user_id', $user)->first();
+        $card_length = strlen($card_number);
+        $hashed_length = $card_length - 4;
 
-        $encrypted_card = $user_card->card_number;
+        $card = substr($card_number, -4);
 
-        return Crypt::decryptString($encrypted_card);
+        return str_repeat('*', $hashed_length) . $card;
     }
 
-    public static function getHashedCard(string $user)
-    {
-        $card_number = Wallet::getCardNumber($user);
-        $card_length = strlen($card_number) - 4;
-
-        $hashCard = str_repeat('*', $card_length);
-
-        return $hashCard . substr($card_number, -4);
-    }
 
 //    public static function getDateFormat()
 //    {}

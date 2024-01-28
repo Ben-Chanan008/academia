@@ -74,20 +74,27 @@ nav .icons {
 
 .sidebar {
   max-width: 100px; }
-  .sidebar div.side-icons > div {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .sidebar div.side-icons > div a.active::before {
-      content: "";
-      background-color: var(--pink);
-      width: 2px;
-      position: absolute;
-      margin: 10px;
-      top: 0;
-      bottom: 0;
-      left: 0; }
+  @media screen and (max-width: 576px) {
+    .sidebar {
+      position: absolute !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      z-index: 1030 !important;
+      min-width: 100vw !important; } }
+  @media screen and (min-width: 772px) {
+    .sidebar {
+      height: 100vh !important;
+      position: relative !important; } }
+  .sidebar div.side-icons > div a.active::before {
+    content: "";
+    background-color: var(--pink);
+    width: 2px;
+    position: absolute;
+    margin: 10px;
+    top: 0;
+    bottom: 0;
+    left: 0; }
   .sidebar a {
     color: #cccccc;
     right: 0; }
@@ -231,5 +238,11 @@ input.floating {
 .add-card {
   width: 50px !important;
   height: 50px !important; }
+
+.w-500 {
+  width: 500px !important; }
+  @media screen and (max-width: 576px) {
+    .w-500 {
+      width: 400px !important; } }
 
 /*# sourceMappingURL=style.css.map */

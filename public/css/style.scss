@@ -20,6 +20,13 @@
     }
 }
 
+@mixin fixedBottom(){
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    z-index: 1030 !important;
+}
+
 :root{
     --primary: #171821;
     --secondary: #21222d;
@@ -119,12 +126,25 @@ nav{
 .sidebar{
     //display: none;
     max-width: 100px;
+    @media screen and(max-width: 576px) {
+        //max-width: 0;
+        position: absolute !important;
+        @include fixedBottom;
+        min-width: 100vw !important;
+        //height: 100% !important;
+        //display: none;
+    }
+
+    @media screen and(min-width: 772px) {
+        height: 100vh !important;
+        position: relative !important;
+    }
     div.side-icons{
         > div{
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            //position: relative;
+            //display: flex;
+            //justify-content: center;
+            //align-items: center;
 
             a.active{
                 &::before{
@@ -320,4 +340,12 @@ input.floating{
 .add-card{
     width: 50px !important;
     height: 50px !important;
+}
+
+.w-500{
+    width: 500px !important;
+
+    @media screen and (max-width: 576px){
+        width: 400px !important;
+    }
 }

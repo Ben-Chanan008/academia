@@ -1,17 +1,17 @@
 /**---------------------------- SELECTOR FUNCTIONS -------------------------------*/
-const $ = (selector) => document.querySelector(selector);
+const $select = (selector) => document.querySelector(selector);
 const $all = (selector) => document.querySelectorAll(selector);
 
 /**--------------------------------- SELECTORS ------------------------------------*/
-const navBar = $('.a-navbar');
-const documentBody = $('body');
-const searchBtn = $('.small');
-const searchCancel = $('#search-cancel');
-const smallSearch = $('.small-search');
-const section = $('.section');
-const dropBtn = $('.user-img');
+const navBar = $select('.a-navbar');
+const documentBody = $select('body');
+const searchBtn = $select('.small');
+const searchCancel = $select('#search-cancel');
+const smallSearch = $select('.small-search');
+const section = $select('.section');
+const dropBtn = $select('.user-img');
 const sidebarLinks = $all('.sidebar a');
-const sidebarSize = $('.sidebar').getBoundingClientRect();
+const sidebarSize = $select('.sidebar').getBoundingClientRect();
 let pageSize = documentBody.getBoundingClientRect();
 
 /**------------------------------ PAGE LOGIC ----------------------------------*/
@@ -30,12 +30,19 @@ if(pageSize.width <= 576) {
     }
 
     console.log('reached!!!');
+    window.onload = () =>
+    {if(section){
+        // section.style.marginLeft = `${sidebarSize.width}px`;
+        section.style.maxWidth = `100vw`;
+        section.style.top = `${navBar.getBoundingClientRect().height}px`
+        console.log(sidebarSize.width)
+    }}
 }
 
 window.onload = () =>
 {if(section){
-    section.style.marginLeft = `${sidebarSize.width}px`;
-    section.style.maxWidth = `calc(${100}vw - ${sidebarSize.width}px)`;
+    // section.style.marginLeft = `${sidebarSize.width}px`;
+    // section.style.maxWidth = `calc(${100}vw - ${sidebarSize.width}px)`;
     section.style.top = `${navBar.getBoundingClientRect().height}px`
 console.log(sidebarSize.width)
 }};
@@ -110,3 +117,22 @@ if(sidebarLinks){
        });
     });
 }*/
+
+/**
+ * ------------------------------ OWL CAROUSEL -----------------------
+ */
+
+$('document').ready(() => {
+    $(document).ready(() => {
+        $('.owl-carousel').owlCarousel({
+            items: 1,
+            margin: 100,
+            loop: true,
+            autoplay: false,
+            autoplayTimeout: 3000,
+            autoplaySpeed: 1000
+        });
+    })
+});
+
+

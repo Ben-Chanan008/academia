@@ -1,7 +1,7 @@
-const loginForm = $('#login-form');
-const registerForm = $('#register-form');
-const cardForm = $('#card-form');
-const msgDisplay = $('.msg-display');
+const loginForm = $select('#login-form');
+const registerForm = $select('#register-form');
+const cardForm = $select('#card-form');
+const msgDisplay = $select('.msg-display');
 
 let errorBag = {},
     _token = document.querySelector('meta[token]').attributes.token.value;

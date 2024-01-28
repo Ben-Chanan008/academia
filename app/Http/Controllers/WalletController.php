@@ -12,10 +12,12 @@ class WalletController extends Controller
     //
     public function index()
     {
+        $hashed_number = [];
+
         return view('wallet', [
             'modal' => Wallet::modal('wallet-modal'),
-            'card' => Wallet::where('user_id', auth()->user()->id)->first(),
-            'hash_number' => Wallet::getHashedCard(auth()->user()->id)
+            'card' => Wallet::all(),
+            'hash_number' => $hashed_number
         ]);
     }
 
