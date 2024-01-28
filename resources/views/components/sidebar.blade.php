@@ -7,7 +7,7 @@
             <a class="text-white" href="/wallet"><i class="far fa-wallet mb-3"></i></a>
         </div>
         <div class="px-3">
-            <a class="text-white" href="/statistics"><i class="far fa-chart-column mb-3"></i></a>
+            <a class="text-white" href="/transaction"><i class="far fa-money-bill-wave mb-3"></i></a>
         </div>
         <div class="px-3">
             <a class="text-white" href="/statement"><i class="far fa-print mb-3"></i></a>
