@@ -1,5 +1,5 @@
 <div class="sidebar site-primary py-3">
-    <div class="d-flex flex-md-column align-items-center flex-row h-100 justify-content-center side-icons">
+    <div class="d-flex flex-md-column align-items-md-center flex-row h-100 justify-content-center side-icons">
         <div class="px-3">
             <a class="text-white" href="/"><i class="far fa-house mb-3"></i></a>
         </div>

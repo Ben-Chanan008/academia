@@ -29,7 +29,6 @@ if(pageSize.width <= 576) {
         });
     }
 
-    console.log('reached!!!');
     window.onload = () =>
     {if(section){
         // section.style.marginLeft = `${sidebarSize.width}px`;
