@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\SocialController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WalletController;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,10 @@ Route::post('profile/update', [UserController::class, 'update_profile'])->middle
 Route::get('wallet', [WalletController::class, 'index'])->middleware('auth');
 
 Route::post('card/register', [WalletController::class, 'store'])->middleware('auth');
+
+Route::get('transaction', [TransactionController::class, 'index'])->middleware('auth');
+Route::post('transaction/card', [TransactionController::class, 'card'])->middleware('auth');
+
+Route::post('income/add', [TransactionController::class, 'income'])->middleware('auth');
+
+Route::get('transactions/expenses', [TransactionController::class, 'expenses'])->middleware('auth');

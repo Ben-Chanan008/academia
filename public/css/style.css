@@ -27,6 +27,14 @@ body {
   color: var(--white);
   max-width: 100vw !important; }
 
+.section {
+  margin-left: 100px;
+  max-width: calc(-100px + 100vw); }
+  @media screen and (max-width: 772px) {
+    .section {
+      margin-left: 0;
+      max-width: 100vw; } }
+
 .small-search {
   display: none;
   z-index: 10000 !important;
@@ -76,7 +84,7 @@ nav .icons {
   max-width: 100px; }
   @media screen and (max-width: 576px) {
     .sidebar {
-      position: absolute !important;
+      position: fixed !important;
       right: 0 !important;
       bottom: 0 !important;
       left: 0 !important;
@@ -244,5 +252,23 @@ input.floating {
   @media screen and (max-width: 576px) {
     .w-500 {
       width: 400px !important; } }
+
+.cards label:hover {
+  border: 2px var(--blue) solid;
+  cursor: pointer; }
+.cards input:checked ~ label {
+  border: 1px var(--blue) solid; }
+
+.step {
+  display: none;
+  animation: slideIn 1s ease-in-out forwards; }
+  .step.active {
+    display: block; }
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(10%); }
+  100% {
+    transform: translateX(0); } }
 
 /*# sourceMappingURL=style.css.map */

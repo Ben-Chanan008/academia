@@ -40,11 +40,9 @@ if(pageSize.width <= 576) {
 
 window.onload = () =>
 {if(section){
-    // section.style.marginLeft = `${sidebarSize.width}px`;
-    // section.style.maxWidth = `calc(${100}vw - ${sidebarSize.width}px)`;
     section.style.top = `${navBar.getBoundingClientRect().height}px`
-console.log(sidebarSize.width)
 }};
+
 
 /**------------------------------ PRORESS BARS --------------------------------*/
 let progressCircle = $all('.progress-circular'),
@@ -134,4 +132,4 @@ $('document').ready(() => {
     })
 });
 
-
+//------------------------------------- CARD SELECTION -------------------------------------//
