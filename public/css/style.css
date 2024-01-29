@@ -270,5 +270,7 @@ input.floating {
     transform: translateX(10%); }
   100% {
     transform: translateX(0); } }
+.overlay {
+  backdrop-filter: blur(20px); }
 
 /*# sourceMappingURL=style.css.map */

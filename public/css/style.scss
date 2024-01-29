@@ -387,3 +387,8 @@ input.floating{
         transform: translateX(0);
     }
 }
+
+.overlay{
+    backdrop-filter: blur(20px);
+    //mix-blend-mode: overlay;
+}

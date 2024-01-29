@@ -1,5 +1,5 @@
 <x-base_struct title="Dashboard">
-    <x-statistics />
+    <x-statistics :expenses="$expenses"/>
     <x-navbar />
     <x-sidebar />
 {{--    <span class="section">Link</span>--}}

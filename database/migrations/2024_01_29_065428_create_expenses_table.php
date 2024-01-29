@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('transaction');
-            $table->string('amount');
+            $table->decimal('amount', 5 ,2);
             $table->timestamps();
         });
     }

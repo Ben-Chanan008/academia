@@ -8,7 +8,7 @@
             </div>
             <div class="flex-start mt-3 py-3">
                 <p class="lead mb-0">My Balance</p>
-                <span class="fs-3 fw-bold">$200.000.000</span>
+                <span class="fs-3 fw-bold">${{$income->income}}</span>
             </div>
             <div class="mt-4">
                 <span><i class="far fa-octagon-plus me-2"></i>Create Transaction</span>
@@ -16,7 +16,7 @@
                 <form action="/expense" id="expense" method="POST" class="p-4 rounded-3 site-secondary">
                     @csrf
                     <div class="form-group position-relative mb-4">
-                        <input class="form-control p-3 floating position-relative" name="transaction_name" type="text" id="transaction_name" placeholder=" "/>
+                        <input class="form-control p-3 floating position-relative" name="transaction" type="text" id="transaction_name" placeholder=" "/>
                         <label for="income" class="float-label position-absolute">Transaction</label>
                     </div>
                     @error('transaction_name')
@@ -30,7 +30,7 @@
                         <p class="text-danger">{{$message}}</p>
                     @enderror
                     <div class="d-flex justify-content-end">
-                        <button class="btn site-blue px-4">Create</button>
+                        <button type="submit" class="btn site-blue px-4">Create</button>
                     </div>
                 </form>
             </div>

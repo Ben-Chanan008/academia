@@ -1,7 +1,8 @@
+@php use Carbon\Carbon; @endphp
 <x-align-items>
 
     <div class="row h-100 w-100">
-        <div class="col-lg-8 h-100">
+        <div class="col-lg-8 h-100 d-lg-block d-none">
             <div class="card statistics site-secondary w-100 border-0 rounded-0 p-4 rounded-4">
                 <div class="d-flex px-4 justify-content-center">
                     <div class="d-flex align-items-center mx-5 ">
@@ -75,15 +76,14 @@
                 </div>
             </div>
         </div>
-        <div class="col mx-lg-5 mx-0">
+        <div class="col mx-lg-5 mx-3">
             <div class="d-flex justify-content-around">
                 <span class="">My Cards</span>
                 <i class="far fa-list-dots"></i>
             </div>
             <div class="card d-flex flex-column text-white site-secondary p-5 mt-4">
-                <span class="lead">Balance</span>
-                <p class="h1">$13.564</p>
-                <span class="mt-5">..... ..... ..... 2376</span>
+                <span class="lead">Owner</span>
+                <p class="h1">{{auth()->user()->name}}</p>
             </div>
             <div class="d-flex justify-content-lg-around mt-3 justify-content-between">
                 <span class="">Recent Transactions</span>
@@ -91,57 +91,63 @@
             </div>
             <div class="mt-4">
                 <p class="">Today</p>
-                <div class="d-flex justify-content-between mb-3 align-items-center">
-                    <div class="d-flex align-items-center">
-                        <div class="rectangle"></div>
-                        <div class="d-flex ms-2 flex-column">
-                            <span>Dribble</span>
-                            <span>11:55AM</span>
+                @forelse($expenses as $expense)
+                    <div class="d-flex justify-content-between mb-3 align-items-center">
+                        <div class="d-flex align-items-center">
+                            <div class="rectangle d-flex justify-content-center align-items-center">
+                                <i class="far fa-business-time"></i>
+                            </div>
+                            <div class="d-flex ms-2 flex-column">
+                                <span>{{$expense->transaction}}</span>
+                                <span>@php print_r(Carbon::parse($expense->created_at)->format('H:i') . 'AM')@endphp</span>
+                            </div>
                         </div>
+                        <span>${{$expense->amount}}</span>
                     </div>
-                    <span>$12.34</span>
-                </div>
-                <div class="d-flex justify-content-between  mb-3 align-items-center">
-                    <div class="d-flex align-items-center">
-                        <div class="rectangle"></div>
-                        <div class="d-flex ms-2 flex-column">
-                            <span>Dribble</span>
-                            <span>11:55AM</span>
-                        </div>
-                    </div>
-                    <span>$12.34</span>
-                </div>
-                <div class="d-flex justify-content-between  mb-3 align-items-center">
-                    <div class="d-flex align-items-center">
-                        <div class="rectangle"></div>
-                        <div class="d-flex ms-2 flex-column">
-                            <span>Dribble</span>
-                            <span>11:55AM</span>
-                        </div>
-                    </div>
-                    <span>$12.34</span>
-                </div>
-                <p class="">Yesterday</p>
-                <div class="d-flex justify-content-between mb-3 align-items-center">
-                    <div class="d-flex align-items-center">
-                        <div class="rectangle"></div>
-                        <div class="d-flex ms-2 flex-column">
-                            <span>Dribble</span>
-                            <span>11:55AM</span>
-                        </div>
-                    </div>
-                    <span>$12.34</span>
-                </div>
-                <div class="d-flex justify-content-between  mb-3 align-items-center">
-                    <div class="d-flex align-items-center">
-                        <div class="rectangle"></div>
-                        <div class="d-flex ms-2 flex-column">
-                            <span>Dribble</span>
-                            <span>11:55AM</span>
-                        </div>
-                    </div>
-                    <span>$12.34</span>
-                </div>
+                    @empty
+                        <p class="text-white">No Transactions Made</p>
+                @endforelse
+{{--                <div class="d-flex justify-content-between  mb-3 align-items-center">--}}
+{{--                    <div class="d-flex align-items-center">--}}
+{{--                        <div class="rectangle"></div>--}}
+{{--                        <div class="d-flex ms-2 flex-column">--}}
+{{--                            <span>Dribble</span>--}}
+{{--                            <span>11:55AM</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <span>$12.34</span>--}}
+{{--                </div>--}}
+{{--                <div class="d-flex justify-content-between  mb-3 align-items-center">--}}
+{{--                    <div class="d-flex align-items-center">--}}
+{{--                        <div class="rectangle"></div>--}}
+{{--                        <div class="d-flex ms-2 flex-column">--}}
+{{--                            <span>Dribble</span>--}}
+{{--                            <span>11:55AM</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <span>$12.34</span>--}}
+{{--                </div>--}}
+{{--                <p class="">Yesterday</p>--}}
+{{--                <div class="d-flex justify-content-between mb-3 align-items-center">--}}
+{{--                    <div class="d-flex align-items-center">--}}
+{{--                        <div class="rectangle"></div>--}}
+{{--                        <div class="d-flex ms-2 flex-column">--}}
+{{--                            <span>Dribble</span>--}}
+{{--                            <span>11:55AM</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <span>$12.34</span>--}}
+{{--                </div>--}}
+{{--                <div class="d-flex justify-content-between  mb-3 align-items-center">--}}
+{{--                    <div class="d-flex align-items-center">--}}
+{{--                        <div class="rectangle"></div>--}}
+{{--                        <div class="d-flex ms-2 flex-column">--}}
+{{--                            <span>Dribble</span>--}}
+{{--                            <span>11:55AM</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <span>$12.34</span>--}}
+{{--                </div>--}}
             </div>
         </div>
     </div>

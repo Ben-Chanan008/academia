@@ -1,6 +1,9 @@
 @php use App\Models\CardType;use App\Models\Wallet;use Illuminate\Support\Facades\Crypt; @endphp
 <x-base_struct title="Transactions">
+<x-loader />
     <x-align-items class="overflow-x-hidden">
+        <div class="site-secondary msg rounded-2 p-2 mb-3 mx-3">
+        </div>
         <div class="mx-3 d-flex" id="transaction">
             <div class="w-100 step active">
                 <h1>Choose a Card</h1>
@@ -43,9 +46,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-center">
-            <button class="w-75 btn btn-primary" data-next>Next</button>
         </div>
     </x-align-items>
     <x-navbar/>

@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\SocialController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WalletController;
+use App\Models\Expense;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        'expenses' => Expense::where('user_id', auth()->user()->id)->get()
+    ]);
 })->middleware('auth');
 
 Route::get('login', [UserController::class, 'index'])->name('login')->middleware('guest');
@@ -44,3 +47,5 @@ Route::post('transaction/card', [TransactionController::class, 'card'])->middlew
 Route::post('income/add', [TransactionController::class, 'income'])->middleware('auth');
 
 Route::get('transactions/expenses', [TransactionController::class, 'expenses'])->middleware('auth');
+
+Route::post('expense', [TransactionController::class, 'expense'])->middleware('auth');

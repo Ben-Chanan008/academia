@@ -1,6 +1,9 @@
 const transaction = $select('#transaction');
 const cards = $all('.cards input');
-const nextBtn = $select('[data-next]');
+const loader = $select('.loader');
+const msg = $select('.msg');
+
+msg.style.display = 'none';
 
 cards.forEach(card =>{
     let _token = document.querySelector('meta[token]').attributes.token.value,
@@ -13,38 +16,56 @@ cards.forEach(card =>{
         selectedCard = e.currentTarget.value;
         formData.append('card', selectedCard);
 
-        fetch('http://localhost:8000/transaction/card', {
-            method: 'POST',
-            body: formData
-        }).then(res => res.json()).then(data => {
-            let incomeForm = $select('#income-form');
+        loader.classList.remove('d-none');
+        loader.classList.add('d-block');
 
-            incomeForm.addEventListener('submit', (e) => {
-                e.preventDefault();
+        setTimeout(() => {
+            loader.classList.remove('d-block');
+            loader.classList.add('d-none');
 
-                let incomeData = new FormData(),
-                    incomeValue = $select('#income').value;
+            let steps = $all('#transaction .step');
+            steps.forEach((step, idx) => step.classList.toggle('active'));
 
-                incomeData.append('_token', _token)
-                incomeData.append('cvc', data.cvc)
-                incomeData.append('income', incomeValue)
+            fetch('http://localhost:8000/transaction/card', {
+                method: 'POST',
+                body: formData
+            }).then(res => res.json()).then(data => {
+                let incomeForm = $select('#income-form');
 
-                console.log(incomeData);
-                fetch('http://localhost:8000/income/add', {
-                    method: 'POST',
-                    body: incomeData
-                }).then(res => res.json()).then(data => console.log(data));
+                localStorage.setItem('cvc', data.cvc);
+                incomeForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    let incomeData = new FormData(),
+                        incomeValue = $select('#income').value;
+
+                    incomeData.append('_token', _token)
+                    incomeData.append('cvc', data.cvc)
+                    incomeData.append('income', incomeValue)
+
+                    fetch('http://localhost:8000/income/add', {
+                        method: 'POST',
+                        body: incomeData
+                    }).then(res => res.json()).then(data => {
+                        msg.style.display = 'block';
+                        msg.innerHTML = `<p class="text-success">${data.message}</p>`;
+
+                        setTimeout(() => {
+                            // window.history.pushState('home', 'home', `/${data.route}`)
+                            location.href = `${data.route}?card=${localStorage.getItem('cvc')}`;
+                        }, 1000)
+                    });
+                });
             });
+        }, 1500);
 
-
-        });
     });
 });
 
-nextBtn.addEventListener('click', (e) => {
-    let steps = $all('#transaction .step');
-    steps.forEach((step, idx) => step.classList.toggle('active'))
-});
+// nextBtn.addEventListener('click', (e) => {
+//     let steps = $all('#transaction .step');
+//     steps.forEach((step, idx) => step.classList.toggle('active'))
+// });
 
 // clickBtn.addEventListener('click', (e) => {
 // });

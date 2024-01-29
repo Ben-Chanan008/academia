@@ -38,22 +38,29 @@ class TransactionController extends Controller
         ]);
         $fields['card'] = $card->id;
 
-        Income::updateOrcreate($fields);
+        Income::updateOrcreate([
+            'card' => $fields['card']
+        ], [
+            'card' => $fields['card'],
+            'income' => $fields['income'],
+        ]);
 
-        return response(['message' => 'Income Created Successfully', 'route' => '/expenses']);
+        return response(['message' => 'Income Created Successfully', 'route' => '/transactions/expenses']);
     }
 
-    public function expenses()
+    public function expenses(Request $request)
     {
-        return view('expenses');
+        return view('expenses', ['income' => Expense::get_cvc($request->query('card'))]);
     }
 
     public function expense(Request $request)
     {
         $fields = $request->validate([
-            'transaction_name' => 'required',
+            'transaction' => 'required',
             'amount' => 'required'
         ]);
+
+        $fields['user_id'] = auth()->user()->id;
 
         Expense::create($fields);
 
