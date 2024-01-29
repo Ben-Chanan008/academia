@@ -6,7 +6,7 @@
                 <span class="ms-3">An Error Occurred</span>
             </div>
         </div>
-        <div class="shadow card site-secondary p-5">
+        <div class="shadow card login site-secondary p-5">
             <h1 class="mb-4 text-center"><i class="far fa-route-interstate me-3"></i>Register</h1>
             <form action="" class="mb-3" id="register-form">
                 <div class="form-group position-relative mb-4">

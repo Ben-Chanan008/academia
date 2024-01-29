@@ -392,3 +392,9 @@ input.floating{
     backdrop-filter: blur(20px);
     //mix-blend-mode: overlay;
 }
+
+.login{
+    @media screen and(max-width: 576px) {
+        width: 400px;
+    }
+}

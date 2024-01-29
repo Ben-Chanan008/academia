@@ -273,4 +273,8 @@ input.floating {
 .overlay {
   backdrop-filter: blur(20px); }
 
+@media screen and (max-width: 576px) {
+  .login {
+    width: 400px; } }
+
 /*# sourceMappingURL=style.css.map */
