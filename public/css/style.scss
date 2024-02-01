@@ -352,6 +352,10 @@ input.floating{
     @media screen and (max-width: 576px){
         width: 400px !important;
     }
+
+    @media screen and (max-width: 380px){
+        width: 368px !important;
+    }
 }
 
 .cards{
@@ -395,6 +399,10 @@ input.floating{
 
 .login{
     @media screen and(max-width: 576px) {
-        width: 400px;
+        width: 365px;
     }
+    @media screen and(max-width: 370px) {
+        background-color: var(--primary) !important;
+    }
+
 }

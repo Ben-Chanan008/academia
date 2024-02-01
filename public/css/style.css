@@ -252,6 +252,9 @@ input.floating {
   @media screen and (max-width: 576px) {
     .w-500 {
       width: 400px !important; } }
+  @media screen and (max-width: 380px) {
+    .w-500 {
+      width: 368px !important; } }
 
 .cards label:hover {
   border: 2px var(--blue) solid;
@@ -275,6 +278,9 @@ input.floating {
 
 @media screen and (max-width: 576px) {
   .login {
-    width: 400px; } }
+    width: 365px; } }
+@media screen and (max-width: 370px) {
+  .login {
+    background-color: var(--primary) !important; } }
 
 /*# sourceMappingURL=style.css.map */

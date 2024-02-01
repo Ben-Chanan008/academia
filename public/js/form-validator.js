@@ -228,7 +228,17 @@ if(cardForm){
             fetch('http://localhost:8000/card/register', {
                 method: 'POST',
                 body: formData,
-            }).then(res => res.json()).then(data => console.log(data));
+            }).then(res => res.json()).then(data => {
+                loader.classList.remove('d-none');
+                loader.classList.add('d-block');
+
+                setTimeout(() => {
+                    loader.classList.remove('d-block');
+                    loader.classList.add('d-none');
+
+                    location.reload();
+                }, 1500);
+            });
         }
     });
 

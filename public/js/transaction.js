@@ -61,14 +61,3 @@ cards.forEach(card =>{
 
     });
 });
-
-// nextBtn.addEventListener('click', (e) => {
-//     let steps = $all('#transaction .step');
-//     steps.forEach((step, idx) => step.classList.toggle('active'))
-// });
-
-// clickBtn.addEventListener('click', (e) => {
-// });
-//
-//
-//
