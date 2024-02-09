@@ -42,14 +42,6 @@
                     <button data-bs-toggle="modal" data-bs-target="#add-wallet" class="border-0 site-secondary"><i class="far fa-plus text-white"></i></button>
                 </div>
             </div>
-            <div class="d-flex justify-content-between">
-                <button class="btn text-white site-blue p-3 m-3">
-                    <i class="far fa-plus"></i> ADD BUDGET PLAN
-                </button>
-                <button class="btn text-white site-blue p-3 m-3">
-                    <i class="far fa-plus"></i> ADD INCOME
-                </button>
-            </div>
         </div>
         <div class="d-flex justify-content-start">
         </div>

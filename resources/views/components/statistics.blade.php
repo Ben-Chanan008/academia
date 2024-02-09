@@ -99,7 +99,7 @@
                             </div>
                             <div class="d-flex ms-2 flex-column">
                                 <span>{{$expense->transaction}}</span>
-                                <span>@php print_r(Carbon::parse($expense->created_at)->format('H:i') . 'AM')@endphp</span>
+                                <span>@php print_r(Carbon::parse($expense->created_at)->format('H:i')) @endphp  <small> @php echo Carbon::parse($expense->created_at)->format('H') >= 12 ? 'PM' : 'AM'@endphp</small></span>
                             </div>
                         </div>
                         <span>${{$expense->amount}}</span>
